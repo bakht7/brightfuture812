@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMart - Premium Computer Solutions</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #bfdbfe;
+        }
+
+        .menu-toggle {
+            display: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(37, 99, 235, 0.9), rgba(30, 64, 175, 0.9)),
+                        url('/api/placeholder/1920/600');
+            background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .category-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            color: var(--text-dark);
+            font-size: 2rem;
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-color);
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">TechMart</a>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-menu">
+                <li><a href="#laptops">Laptops</a></li>
+                <li><a href="#hardware">Hardware</a></li>
+                <li><a href="#software">Software</a></li>
+                <li><a href="#accessories">Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to TechMart</h1>
+            <p>Your Premium Destination for Computer Products</p>
+        </section>
+
+        <section id="laptops">
+            <h2 class="category-title">Featured Laptops</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Business Laptop" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Professional Business Laptop</h3>
+                        <p class="product-description">15.6" FHD, Intel i7, 16GB RAM, 512GB SSD</p>
+                        <p class="product-price">$1,299.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Gaming Laptop" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Gaming Powerhouse</h3>
+                        <p class="product-description">17.3" QHD, RTX 4080, 32GB RAM, 1TB SSD</p>
+                        <p class="product-price">$2,499.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hardware">
+            <h2 class="category-title">Computer Hardware</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Graphics Card" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">High-End Graphics Card</h3>
+                        <p class="product-description">12GB GDDR6X, Ray Tracing Enabled</p>
+                        <p class="product-price">$799.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="SSD" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">NVMe SSD</h3>
+                        <p class="product-description">1TB, PCIe 4.0, 7000MB/s Read</p>
+                        <p class="product-price">$149.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="software">
+            <h2 class="category-title">Software Solutions</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Office Suite" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Professional Office Suite</h3>
+                        <p class="product-description">Complete productivity package, 1-year license</p>
+                        <p class="product-price">$199.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Antivirus" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Premium Antivirus</h3>
+                        <p class="product-description">Advanced security, 3 devices, 2-year protection</p>
+                        <p class="product-price">$89.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="accessories">
+            <h2 class="category-title">Computer Accessories</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Mechanical Keyboard" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Mechanical Gaming Keyboard</h3>
+                        <p class="product-description">RGB Backlit, Cherry MX Switches</p>
+                        <p class="product-price">$129.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="/api/placeholder/400/320" alt="Wireless Mouse" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Wireless Gaming Mouse</h3>
+                        <p class="product-description">25000 DPI, 100-hour Battery Life</p>
+                        <p class="product-price">$79.99</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TechMart. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Menu Toggle Functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Add to Cart Functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const productName = productCard.querySelector('.product-title').textContent;
+                const productPrice = productCard.querySelector('.product-price').textContent;
+                
+                alert(`Added to Cart:\n${productName}\n${productPrice}`);
+            });
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                const headerOffset = 80;
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu after clicking
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
